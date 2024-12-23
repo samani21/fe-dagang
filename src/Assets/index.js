@@ -19,6 +19,10 @@ import iconUser from './icon/lineicons--user-4.svg';
 import iconCategory from './icon/iconamoon--category-thin.svg';
 import iconDropDown from './icon/gridicons--dropdown.svg';
 import iconDropUp from './icon/ri--arrow-drop-up-fill.svg';
+import iconSearch from './icon/weui--search-filled.svg';
+import iconCart from './icon/ic--outline-shopping-bag.svg';
+import iconUserLogin from './icon/mdi--user.svg';
+import iconCloseModal from './icon/material-symbols--close-rounded.svg';
 
 export {
     iconGoole,
@@ -42,4 +46,8 @@ export {
     iconCategory,
     iconDropDown,
     iconDropUp,
+    iconSearch,
+    iconCart,
+    iconUserLogin,
+    iconCloseModal
 };

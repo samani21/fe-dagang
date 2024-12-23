@@ -8,10 +8,16 @@ import { useNavigate } from 'react-router-dom'
 const LoginComponent = () => {
     const [isVisible, setIsVisible] = useState(false);
     const navigate = useNavigate();
+    const [email, setEmail] = useState('');
     const handleDaftar = () => {
         navigate('/register'); // Alihkan ke halaman login ("/")
     };
     const handleMasuk = () => {
+        if (email == 'admin') {
+            localStorage.setItem('role', 'Admin');
+        } else {
+            localStorage.setItem('role', 'Pelanggan');
+        }
         navigate('/dashboard'); // Alihkan ke halaman login ("/")
     };
     const toggleVisibility = () => {
@@ -50,7 +56,8 @@ const LoginComponent = () => {
                         <IconWrapperAuth>
                             <FontAwesomeIcon icon={faEnvelope} />
                         </IconWrapperAuth>
-                        <InputFieldAuth type="email" placeholder="Email" />
+                        <InputFieldAuth type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+
                     </InputContainerAuth>
                 </WrapperLogin>
                 <WrapperLogin>

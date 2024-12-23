@@ -122,7 +122,7 @@ width: 100%;
   text-align: left;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
-  color: var(--Color-Primitive-Neutral-neutral-900, #0D9488);
+  color: var(--Color-Primitive-Neutral-neutral-900, #0d7794);
   @media (max-width: 325px) {
     font-size: 22px;
   }
@@ -177,7 +177,7 @@ padding: 10px 16px 10px 16px;
 gap: 8px;
 border-radius: 4px;
 opacity: 0px;
-background: var(--Color-Primitive-Brand-brand-600, #0D9488);
+background: var(--Color-Primitive-Brand-brand-600, #0d7794);
 /* box-shadow: 0px 1px 2px 0px #07f3e3ff; */
 border: 0px;
 display: flex;
@@ -253,7 +253,7 @@ line-height: 20px;
 text-align: left;
 text-underline-position: from-font;
 text-decoration-skip-ink: none;
-color: var(--Color-Primitive-Brand-brand-600, #0D9488);
+color: var(--Color-Primitive-Brand-brand-600, #0d7794);
 cursor: pointer;
 `;
 
@@ -285,7 +285,7 @@ export const Image = styled.img`
   align-items: start;
 `;
 export const Shadow = styled.div`
-  background: linear-gradient(0deg, #115E59 0%, rgba(17, 94, 89, 0) 100%);
+  background: linear-gradient(0deg, #11485e 0%, rgba(17, 94, 89, 0) 100%);
   width: 100%;
   height: 100%;
   position: fixed;
