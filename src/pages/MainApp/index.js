@@ -76,7 +76,7 @@ const menu = [
 
 const MainApp = () => {
     const location = useLocation();
-    const [idActive, setidActive] = useState(menu?.find(item => item?.url === location?.pathname))
+    const [idActive] = useState(menu?.find(item => item?.url === location?.pathname))
     const [activeMenu, setActiveMenu] = useState(idActive?.id);
     const [dropDownMenu, setDropDwonMenu] = useState(false)
     const [activeMenuSubmenu, setActiveMenuSubmenu] = useState();
