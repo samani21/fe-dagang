@@ -46,7 +46,6 @@ const Pelanggan = () => {
     const [sidebarOpen, setSidebarOpen] = useState(false);
     const filteredMenuItemsChild = menuPelanggan?.filter(item => item?.child);
     const filteredMenuItems = menuPelanggan?.filter(item => !item?.child);
-    const [pay, setPay] = useState(false);
 
     const toggleMenu = () => setMenuOpen(!menuOpen);
     const toggleMenuOther = () => setMenuOpenOther(!menuOpenOther);

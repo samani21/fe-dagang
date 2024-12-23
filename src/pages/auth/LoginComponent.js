@@ -13,7 +13,7 @@ const LoginComponent = () => {
         navigate('/register'); // Alihkan ke halaman login ("/")
     };
     const handleMasuk = () => {
-        if (email == 'admin') {
+        if (email === 'admin') {
             localStorage.setItem('role', 'Admin');
         } else {
             localStorage.setItem('role', 'Pelanggan');

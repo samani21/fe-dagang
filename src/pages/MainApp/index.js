@@ -5,7 +5,7 @@ import Pelanggan from './Pelanggan';
 const MainApp = () => {
     const [role] = useState(localStorage.getItem('role'));
     return (
-        role == 'Admin' ?
+        role === 'Admin' ?
             <Admin /> : <Pelanggan />
     )
 }
