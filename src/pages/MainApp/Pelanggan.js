@@ -44,11 +44,8 @@ const Pelanggan = () => {
     const [menuOpenOther, setMenuOpenOther] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
     const [sidebarOpen, setSidebarOpen] = useState(false);
-    const filteredMenuItemsChild = menuPelanggan?.filter(item => item?.child);
-    const filteredMenuItems = menuPelanggan?.filter(item => !item?.child);
 
     const toggleMenu = () => setMenuOpen(!menuOpen);
-    const toggleMenuOther = () => setMenuOpenOther(!menuOpenOther);
     const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
     return (
         <HeaderContentContainer>
