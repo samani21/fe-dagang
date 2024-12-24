@@ -5,39 +5,6 @@ import { iconCart, iconDropDown, iconDropUp, iconSearch, iconUserLogin } from '.
 import { OverlayCart } from '../../Components/layout/ModalCart';
 import CartPelanggan from './cart/CartPelanggan';
 
-const menuPelanggan = [
-    {
-        id: 1,
-        parent_name: 'Desain',
-        url: "/desain"
-    },
-    {
-        id: 2,
-        parent_name: 'Portofolio',
-        url: "/portofolio"
-    },
-    {
-        id: 3,
-        parent_name: 'Lainnya',
-        child: [
-            {
-                idChild: 1,
-                nameChild: "Menu 1",
-                url: "/menu-1"
-            },
-            {
-                idChild: 2,
-                nameChild: "Menu 2",
-                url: "/menu-2"
-            },
-            {
-                idChild: 3,
-                nameChild: "Menu 3",
-                url: "/menu-3"
-            },
-        ]
-    },
-]
 const Pelanggan = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const navigate = useNavigate();
