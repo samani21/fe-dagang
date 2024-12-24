@@ -23,7 +23,13 @@ import iconSearch from './icon/weui--search-filled.svg';
 import iconCart from './icon/ic--outline-shopping-bag.svg';
 import iconUserLogin from './icon/mdi--user.svg';
 import iconCloseModal from './icon/material-symbols--close-rounded.svg';
-
+import iconBack from './icon/weui--back-filled.svg';
+import iconCoordinat from './icon/oui--vis-map-coordinate.svg';
+import iconArrowRIght from './icon/oui--arrow-right.svg';
+import iconPlus from './icon/mynaui--plus.svg';
+import iconMinus from './icon/bitcoin-icons--minus-filled.svg';
+import ImageSepatu from './image/sepatu.jpg'
+import ImageHp from './image/64fca912c32ace35d652b7b3-apple-iphone-13-128gb-red-used.jpg'
 export {
     iconGoole,
     iconCloseSidebar,
@@ -49,5 +55,12 @@ export {
     iconSearch,
     iconCart,
     iconUserLogin,
-    iconCloseModal
+    iconCloseModal,
+    iconBack,
+    iconCoordinat,
+    iconArrowRIght,
+    ImageSepatu,
+    ImageHp,
+    iconPlus,
+    iconMinus
 };

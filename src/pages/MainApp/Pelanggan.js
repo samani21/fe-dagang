@@ -1,18 +1,81 @@
-import React, { useState } from 'react'
-import { HeaderContentContainer, IconCart, IconCartContainer, IconSearch, ImageArrow, ImageUser, InputSearch, InputSearchContainer, KebabMenuItem, KebabMenuUser, LineKebab, Logo, LogoContainer, Menu, NavbarContainer, NavbarLeft, NavbarRight, SearchContainer, SidebarCart, TextKebabMenu, UserContainer } from '../../Components/layout/Header'
+import React, { useState } from 'react';
+import {
+    HeaderContentContainer,
+    IconCart,
+    IconCartContainer,
+    IconSearch,
+    ImageArrow,
+    ImageUser,
+    InputSearch,
+    InputSearchContainer,
+    KebabMenuItem,
+    KebabMenuUser,
+    LineKebab,
+    Logo,
+    LogoContainer,
+    Menu,
+    MenuList,
+    NavbarContainer,
+    NavbarLeft,
+    NavbarRight,
+    SearchContainer,
+    SidebarCart,
+    TextKebabMenu,
+    TitleMenu,
+    UserContainer
+} from '../../Components/layout/Header';
 import { useNavigate } from 'react-router-dom';
 import { iconCart, iconDropDown, iconDropUp, iconSearch, iconUserLogin } from '../../Assets';
 import { OverlayCart } from '../../Components/layout/ModalCart';
 import CartPelanggan from './cart/CartPelanggan';
 
+const menuPelanggan = [
+    {
+        id: 1,
+        parent_name: 'Desain',
+        url: "/desain"
+    },
+    {
+        id: 2,
+        parent_name: 'Portofolio',
+        url: "/portofolio"
+    },
+    {
+        id: 3,
+        parent_name: 'Lainnya',
+        child: [
+            {
+                idChild: 1,
+                nameChild: "Menu 1",
+                url: "/menu-1"
+            },
+            {
+                idChild: 2,
+                nameChild: "Menu 2",
+                url: "/menu-2"
+            },
+            {
+                idChild: 3,
+                nameChild: "Menu 3",
+                url: "/menu-3"
+            },
+        ]
+    },
+];
+
 const Pelanggan = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const navigate = useNavigate();
+    const [menuOpenOther, setMenuOpenOther] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
     const [sidebarOpen, setSidebarOpen] = useState(false);
+    // const filteredMenuItemsChild = menuPelanggan?.filter(item => item?.child);
+    const filteredMenuItems = menuPelanggan?.filter(item => !item?.child);
 
     const toggleMenu = () => setMenuOpen(!menuOpen);
+    const toggleMenuOther = () => setMenuOpenOther(!menuOpenOther);
     const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
+
     return (
         <HeaderContentContainer>
             <NavbarContainer>
@@ -21,7 +84,31 @@ const Pelanggan = () => {
                         <Logo>Logo.</Logo>
                     </LogoContainer>
                     <Menu>
-                        asas
+                        {filteredMenuItems?.map((menu, index) => (
+                            <MenuList key={index}>
+                                <TitleMenu>{menu?.parent_name}</TitleMenu>
+                            </MenuList>
+                        ))}
+                        {/* {filteredMenuItemsChild.length > 0 && filteredMenuItemsChild?.map((child, index) => (
+                            <MenuList
+                                key={index}
+                                style={{ cursor: "pointer" }}
+                                onMouseLeave={() => setMenuOpenOther(false)}
+                                onMouseEnter={() => setMenuOpenOther(true)}
+                            >
+                                <Arrow onClick={toggleMenuOther}>
+                                    <TitleMenu>{child?.parent_name}</TitleMenu>
+                                    <ImageArrow src={menuOpenOther ? iconDropDown : iconDropUp} />
+                                </Arrow>
+                                <KebabMenu open={menuOpenOther}>
+                                    {child?.child?.map((item, index) => (
+                                        <KebabMenuItem key={index} onClick={() => navigate(item?.url)}>
+                                            <TextKebabMenu>{item?.nameChild}</TextKebabMenu>
+                                        </KebabMenuItem>
+                                    ))}
+                                </KebabMenu>
+                            </MenuList>
+                        ))} */}
                     </Menu>
                 </NavbarLeft>
                 <NavbarRight>
@@ -70,7 +157,7 @@ const Pelanggan = () => {
             </SidebarCart>
             <OverlayCart open={sidebarOpen} onClick={toggleSidebar} />
         </HeaderContentContainer>
-    )
-}
+    );
+};
 
-export default Pelanggan
+export default Pelanggan;

@@ -255,11 +255,15 @@ export const SidebarCart = styled.div`
     width: 300px;
   }
   @media (max-width: 350px) {
-    width: 94%;
-    height: 97%;
-    margin: 10px;
-    box-shadow: none;
+    width: 100%;
+    height: 100%;
   }
 `;
 
-
+export const MenuList = styled.div`
+    padding: 10px;
+    cursor: pointer;
+    &:hover {
+        background-color: #f0f0f0;
+    }
+`;
