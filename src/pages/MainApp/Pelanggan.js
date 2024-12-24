@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
-import { Arrow, HeaderContentContainer, IconCart, IconCartContainer, IconSearch, ImageArrow, ImageUser, InputSearch, InputSearchContainer, KebabMenu, KebabMenuItem, KebabMenuUser, LineKebab, Logo, LogoContainer, Menu, NavbarContainer, NavbarLeft, NavbarRight, SearchContainer, SidebarCart, TextKebabMenu, TitleMenu, UserContainer } from '../../Components/layout/Header'
+import { HeaderContentContainer, IconCart, IconCartContainer, IconSearch, ImageArrow, ImageUser, InputSearch, InputSearchContainer, KebabMenuItem, KebabMenuUser, LineKebab, Logo, LogoContainer, Menu, NavbarContainer, NavbarLeft, NavbarRight, SearchContainer, SidebarCart, TextKebabMenu, UserContainer } from '../../Components/layout/Header'
 import { useNavigate } from 'react-router-dom';
-import { MenuList } from '@mui/material';
 import { iconCart, iconDropDown, iconDropUp, iconSearch, iconUserLogin } from '../../Assets';
 import { OverlayCart } from '../../Components/layout/ModalCart';
 import CartPelanggan from './cart/CartPelanggan';
@@ -59,31 +58,7 @@ const Pelanggan = () => {
                         <Logo>Logo.</Logo>
                     </LogoContainer>
                     <Menu>
-                        {
-                            filteredMenuItems?.map((menu, index) => (
-                                <MenuList>
-                                    <TitleMenu>{menu?.parent_name}</TitleMenu>
-                                </MenuList>
-                            ))
-                        }
-                        {filteredMenuItemsChild.length > 0 && filteredMenuItemsChild?.map((child, index) => (
-                            <MenuList style={{ cursor: "pointer" }}
-                                onMouseLeave={() => setMenuOpenOther(false)}
-                                onMouseEnter={() => setMenuOpenOther(true)}
-                            >
-                                <Arrow onClick={toggleMenuOther}>
-                                    <TitleMenu>{child?.parent_name}</TitleMenu>
-                                    <ImageArrow src={menuOpenOther ? iconDropDown : iconDropUp} />
-                                </Arrow>
-                                <KebabMenu open={menuOpenOther}>
-                                    {child?.child?.map((item, index) => (
-                                        <KebabMenuItem key={index} onClick={() => navigate(item?.url)}>
-                                            <TextKebabMenu>{item?.nameChild}</TextKebabMenu>
-                                        </KebabMenuItem>
-                                    ))}
-                                </KebabMenu>
-                            </MenuList>
-                        ))}
+                        asas
                     </Menu>
                 </NavbarLeft>
                 <NavbarRight>
