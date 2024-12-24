@@ -66,14 +66,14 @@ const menuPelanggan = [
 const Pelanggan = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const navigate = useNavigate();
-    const [menuOpenOther, setMenuOpenOther] = useState(false);
+    // const [menuOpenOther, setMenuOpenOther] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
     const [sidebarOpen, setSidebarOpen] = useState(false);
     // const filteredMenuItemsChild = menuPelanggan?.filter(item => item?.child);
     const filteredMenuItems = menuPelanggan?.filter(item => !item?.child);
 
     const toggleMenu = () => setMenuOpen(!menuOpen);
-    const toggleMenuOther = () => setMenuOpenOther(!menuOpenOther);
+    // const toggleMenuOther = () => setMenuOpenOther(!menuOpenOther);
     const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
 
     return (
