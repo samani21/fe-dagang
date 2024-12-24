@@ -251,10 +251,7 @@ export const SidebarCart = styled.div`
   @media (max-width: 600px) {
     width: 400px;
   }
-  @media (max-width: 420px) {
-    width: 300px;
-  }
-  @media (max-width: 350px) {
+  @media (max-width: 500px) {
     width: 100%;
     height: 100%;
   }
