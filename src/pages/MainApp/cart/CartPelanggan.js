@@ -1,7 +1,6 @@
 import React from 'react';
-import { iconCloseModal} from '../../../Assets';
-import { CartContainer, FeeContainer, ImageToggle, ListItem, PayContainer, SidebarContentCart, TextDark, TextGrey, TextLight, TextTitle, TitleCart, TotalContainer } from '../../../Components/layout/Header';
-import { ButtonDark } from '../../../Components/auth/ButtonDark';
+import { iconCloseModal } from '../../../Assets';
+import { ContentCart, FooterContentCart, IconCloseModal, SidebarContentCart, TitleContentCart, TopContentCart } from '../../../Components/layout/ModalCart';
 const formatRupiah = (number) => {
     return new Intl.NumberFormat('id-ID', {
         style: 'currency',
@@ -15,26 +14,92 @@ const CartPelanggan = (props) => {
 
     return (
         <SidebarContentCart>
-            <CartContainer>
-                <TitleCart>
-                    <TextTitle>Keranjang</TextTitle>
-                    <ImageToggle src={iconCloseModal} onClick={toggleSidebar} alt='Menu Toggle' />
-                </TitleCart>
-                <ListItem>
+            <TopContentCart>
+                <TitleContentCart>
+                    Keranjang
+                </TitleContentCart>
+                <IconCloseModal src={iconCloseModal} onClick={toggleSidebar} />
+            </TopContentCart>
+            <ContentCart>
+                <TitleContentCart>
+                    Item
+                </TitleContentCart>
+                <TitleContentCart>
+                    Item
+                </TitleContentCart>
+                <TitleContentCart>
+                    Item
+                </TitleContentCart>
+                <TitleContentCart>
+                    Item
+                </TitleContentCart>
+                <TitleContentCart>
+                    Item
+                </TitleContentCart>
+                <TitleContentCart>
+                    Item
+                </TitleContentCart>
+                <TitleContentCart>
+                    Item
+                </TitleContentCart>
+                <TitleContentCart>
+                    Item
+                </TitleContentCart>
+                <TitleContentCart>
+                    Item
+                </TitleContentCart>
+                <TitleContentCart>
+                    Item
+                </TitleContentCart>
+                <TitleContentCart>
+                    Item
+                </TitleContentCart>
+                <TitleContentCart>
+                    Item
+                </TitleContentCart>
+                <TitleContentCart>
+                    Item
+                </TitleContentCart>
+                <TitleContentCart>
+                    Item
+                </TitleContentCart>
+                <TitleContentCart>
+                    Item
+                </TitleContentCart>
+                <TitleContentCart>
+                    Item
+                </TitleContentCart>
+                <TitleContentCart>
+                    Item
+                </TitleContentCart>
+                <TitleContentCart>
+                    Item
+                </TitleContentCart>
+                <TitleContentCart>
+                    Item
+                </TitleContentCart>
+                <TitleContentCart>
+                    Item
+                </TitleContentCart>
+                <TitleContentCart>
+                    Item
+                </TitleContentCart>
+                <TitleContentCart>
+                    Item
+                </TitleContentCart>
+                <TitleContentCart>
+                    Item
+                </TitleContentCart>
 
-                </ListItem>
-            </CartContainer>
-            <FeeContainer>
-                <TotalContainer>
-                    <TextGrey>Total</TextGrey>
-                    <TextDark>{formatRupiah(10000000)}</TextDark>
-                </TotalContainer>
-                <PayContainer>
-                    <ButtonDark>
-                        <TextLight>Bayar</TextLight>
-                    </ButtonDark>
-                </PayContainer>
-            </FeeContainer>
+            </ContentCart>
+            <FooterContentCart>
+                <div>
+                    {formatRupiah(1000000)}
+                </div>
+                <div>
+                    Tombol
+                </div>
+            </FooterContentCart>
         </SidebarContentCart>
     );
 };

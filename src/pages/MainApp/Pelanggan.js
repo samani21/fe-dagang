@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
-import { Arrow, AuthContainer, HeaderContentContainer, IconCartContainer, IconHeader, IconSearch, ImageArrow, ImageUser, InputSearch, InputSearchContainer, KebabMenu, KebabMenuItem, LineKebab, Logo, Menu, MenuLeft, MenuList, MenuRight, Navbar, SearchContainer, SidebarCart, TextKebabMenu, TextList } from '../../Components/layout/Header';
+import { Arrow, HeaderContentContainer, IconCart, IconCartContainer, IconSearch, ImageArrow, ImageUser, InputSearch, InputSearchContainer, KebabMenu, KebabMenuItem, KebabMenuUser, LineKebab, Logo, LogoContainer, Menu, NavbarContainer, NavbarLeft, NavbarRight, SearchContainer, SidebarCart, TextKebabMenu, TitleMenu, UserContainer } from '../../Components/layout/Header'
 import { useNavigate } from 'react-router-dom';
+import { MenuList } from '@mui/material';
 import { iconCart, iconDropDown, iconDropUp, iconSearch, iconUserLogin } from '../../Assets';
+import { OverlayCart } from '../../Components/layout/ModalCart';
 import CartPelanggan from './cart/CartPelanggan';
 
 const menuPelanggan = [
@@ -37,7 +39,6 @@ const menuPelanggan = [
         ]
     },
 ]
-
 const Pelanggan = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const navigate = useNavigate();
@@ -51,38 +52,41 @@ const Pelanggan = () => {
     const toggleMenuOther = () => setMenuOpenOther(!menuOpenOther);
     const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
     return (
-        <HeaderContentContainer open={menuOpen}>
-            <Navbar>
-                <MenuLeft>
-                    <Logo onClick={() => navigate('/')}>Logo.</Logo>
-                    <Menu open={menuOpen}>
-                        {filteredMenuItems.map((item, index) => (
-                            <MenuList style={{ cursor: "pointer" }} onClick={() => navigate(item?.url)} key={index}>
-                                <TextList>{item?.parent_name}</TextList>
+        <HeaderContentContainer>
+            <NavbarContainer>
+                <NavbarLeft>
+                    <LogoContainer>
+                        <Logo>Logo.</Logo>
+                    </LogoContainer>
+                    <Menu>
+                        {
+                            filteredMenuItems?.map((menu, index) => (
+                                <MenuList>
+                                    <TitleMenu>{menu?.parent_name}</TitleMenu>
+                                </MenuList>
+                            ))
+                        }
+                        {filteredMenuItemsChild.length > 0 && filteredMenuItemsChild?.map((child, index) => (
+                            <MenuList style={{ cursor: "pointer" }}
+                                onMouseLeave={() => setMenuOpenOther(false)}
+                                onMouseEnter={() => setMenuOpenOther(true)}
+                            >
+                                <Arrow onClick={toggleMenuOther}>
+                                    <TitleMenu>{child?.parent_name}</TitleMenu>
+                                    <ImageArrow src={menuOpenOther ? iconDropDown : iconDropUp} />
+                                </Arrow>
+                                <KebabMenu open={menuOpenOther}>
+                                    {child?.child?.map((item, index) => (
+                                        <KebabMenuItem key={index} onClick={() => navigate(item?.url)}>
+                                            <TextKebabMenu>{item?.nameChild}</TextKebabMenu>
+                                        </KebabMenuItem>
+                                    ))}
+                                </KebabMenu>
                             </MenuList>
                         ))}
-                        {filteredMenuItemsChild.length > 0 &&
-                            filteredMenuItemsChild?.map((child, index) => (
-                                <MenuList style={{ cursor: "pointer" }}
-                                    onMouseLeave={() => setMenuOpenOther(false)}
-                                    onMouseEnter={() => setMenuOpenOther(true)}
-                                >
-                                    <Arrow onClick={toggleMenuOther}>
-                                        <TextList>{child?.parent_name}</TextList>
-                                        <ImageArrow src={menuOpenOther ? iconDropDown : iconDropUp} />
-                                    </Arrow>
-                                    <KebabMenu open={menuOpenOther}>
-                                        {child?.child?.map((item, index) => (
-                                            <KebabMenuItem key={index} onClick={() => navigate(item?.url)}>
-                                                <TextKebabMenu>{item?.nameChild}</TextKebabMenu>
-                                            </KebabMenuItem>
-                                        ))}
-                                    </KebabMenu>
-                                </MenuList>
-                            ))}
                     </Menu>
-                </MenuLeft>
-                <MenuRight>
+                </NavbarLeft>
+                <NavbarRight>
                     <SearchContainer
                         onMouseEnter={() => setIsHovered(true)}
                         onMouseLeave={() => setIsHovered(false)}
@@ -100,12 +104,12 @@ const Pelanggan = () => {
                         />
                     </SearchContainer>
                     <IconCartContainer>
-                        <IconHeader src={iconCart} alt="Cart" onClick={toggleSidebar} />
+                        <IconCart src={iconCart} onClick={toggleSidebar} />
                     </IconCartContainer>
-                    <AuthContainer onClick={toggleMenu}>
+                    <UserContainer onClick={toggleMenu}>
                         <ImageUser src={iconUserLogin} />
-                        <ImageArrow src={menuOpen ? iconDropDown : iconDropUp} style={{ width: "28px", height: "28px" }} />
-                        <KebabMenu open={menuOpen} style={{ top: "40px", right: "100px" }}>
+                        <ImageArrow src={menuOpen ? iconDropDown : iconDropUp} style={{ width: "28px", height: "28px", marginTop: "0px" }} />
+                        <KebabMenuUser open={menuOpen}>
                             <KebabMenuItem>
                                 <TextKebabMenu onClick={() => navigate('/')}>Undanganmu</TextKebabMenu>
                             </KebabMenuItem>
@@ -119,14 +123,15 @@ const Pelanggan = () => {
                             <KebabMenuItem onClick={() => navigate('/logout')}>
                                 <TextKebabMenu>Keluar</TextKebabMenu>
                             </KebabMenuItem>
-                        </KebabMenu>
-                    </AuthContainer>
-                </MenuRight>
-            </Navbar>
+                        </KebabMenuUser>
+                    </UserContainer>
+                </NavbarRight>
+            </NavbarContainer>
             <SidebarCart open={sidebarOpen}>
                 <CartPelanggan toggleSidebar={toggleSidebar} />
             </SidebarCart>
-        </HeaderContentContainer >
+            <OverlayCart open={sidebarOpen} onClick={toggleSidebar} />
+        </HeaderContentContainer>
     )
 }
 
